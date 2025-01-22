@@ -3,8 +3,9 @@ import { Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
   { href: "#research", text: "My Research" },
-  { href: "#resources", text: "Free Resources" },
+  { href: "#resources", text: "Resources" },
   { href: "#youtube", text: "YouTube" },
+  { href: "#cv", text: "CV" },
   { href: "#publications", text: "Publications" },
 ];
 
