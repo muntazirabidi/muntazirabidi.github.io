@@ -2,15 +2,14 @@ import React from "react";
 
 const HeroImage = () => {
   return (
-    <div className="md:w-1/2">
-      <div className="relative group">
-        {/* Profile image */}
-        <div className="relative">
+    <div className="lg:w-1/3 flex justify-center">
+      <div className="relative">
+        <div className="absolute inset-0 bg-gradient-to-br from-violet-200 to-indigo-200 rounded-full blur-2xl opacity-30"></div>
+        <div className="relative w-64 h-64 rounded-full overflow-hidden border-4 border-white shadow-xl">
           <img
             src="/images/profile.png"
-            alt="Dr. Muntazir Abidi"
-            className="rounded-full w-[350px] h-[350px] object-cover
-              transition-transform duration-500 group-hover:scale-105"
+            alt="Profile"
+            className="w-full h-full object-cover"
           />
         </div>
       </div>

@@ -1,80 +1,107 @@
 import React from "react";
-import { Section } from "../../layout";
-import { GradientText } from "../../common";
-import { FileText, Globe, Download } from "lucide-react";
+import { Laptop, Brain, BookOpen } from "lucide-react";
 
 const SERVICES = [
   {
-    icon: FileText,
-    title: "CamEdVenture",
-    description: "Build your profile to get into elite universities.",
+    icon: Laptop,
+    title: "Educational Platform",
+    description:
+      "Join elite academic programs through strategic guidance, research experience, and personalized mentoring for aspiring researchers and scientists.",
     link: "https://www.camedventure.com/",
-    linkText: "Visit Our Website",
+    linkText: "Explore Programs",
+    baseColor: "bg-[#f5efe6]",
+    hoverColor: "hover:bg-[#ebe5dc]",
+    iconColor: "text-[#7d4f50]",
+    buttonBaseColor: "bg-[#7d4f50]",
+    buttonHoverColor: "hover:bg-[#6a4344]",
   },
   {
-    icon: Globe,
-    title: "AI Consulting",
+    icon: Brain,
+    title: "AI Consultation",
     description:
-      "Helping companies implement AI solutions and improve data analysis.",
+      "Leverage cutting-edge AI solutions for research and business. Specialized in machine learning applications in physics, finance, and data analysis.",
     link: "https://www.ecocam-ai.com/",
     linkText: "Learn More",
+    baseColor: "bg-[#edf2f4]",
+    hoverColor: "hover:bg-[#e2e8ea]",
+    iconColor: "text-[#2b6777]",
+    buttonBaseColor: "bg-[#2b6777]",
+    buttonHoverColor: "hover:bg-[#1d4b56]",
   },
   {
-    icon: Download,
-    title: "Free Resources",
+    icon: BookOpen,
+    title: "Research Resources",
     description:
-      "Access tutorials, code samples, and guides for machine learning and data analysis.",
+      "Access comprehensive guides, code implementations, and tutorials on machine learning, cosmology, and quantitative research methods.",
     link: "#",
     linkText: "Get Resources",
+    baseColor: "bg-[#f3eef8]",
+    hoverColor: "hover:bg-[#e9e4ee]",
+    iconColor: "text-[#553772]",
+    buttonBaseColor: "bg-[#553772]",
+    buttonHoverColor: "hover:bg-[#452c5d]",
   },
 ];
 
+const ServiceCard = ({
+  icon: Icon,
+  title,
+  description,
+  link,
+  linkText,
+  baseColor,
+  hoverColor,
+  iconColor,
+  buttonBaseColor,
+  buttonHoverColor,
+}) => (
+  <div
+    className={`group relative rounded-3xl p-8 transition-all duration-500 ${baseColor} ${hoverColor} hover:shadow-lg border border-transparent hover:border-gray-100`}
+  >
+    <div
+      className={`${iconColor} mb-6 transition-transform duration-500 group-hover:scale-110`}
+    >
+      <div className="w-16 h-16 rounded-2xl bg-white/50 flex items-center justify-center">
+        <Icon className="w-8 h-8" />
+      </div>
+    </div>
+
+    <h3 className="text-2xl font-serif mb-4 text-gray-900">{title}</h3>
+
+    <p className="text-gray-600 mb-8 min-h-[80px]">{description}</p>
+
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`inline-flex items-center px-6 py-3 ${buttonBaseColor} ${buttonHoverColor} text-white rounded-lg transition-all duration-300 shadow-sm hover:shadow-md`}
+    >
+      {linkText}
+    </a>
+  </div>
+);
+
 const Services = () => {
   return (
-    <Section className="relative bg-gray-50 py-20">
-      {/* Section Header */}
-      <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
-        How Can I Help You?
-      </h2>
+    <section className="py-24 bg-[#faf9f7]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-4">
+            How Can I Help You?
+          </h2>
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            Bridging academic excellence with practical applications through
+            education, AI solutions, and open resources
+          </p>
+        </div>
 
-      {/* Services Grid */}
-      <div className="grid md:grid-cols-3 gap-10 px-6 md:px-12">
-        {SERVICES.map((service, index) => (
-          <div
-            key={index}
-            className="group relative bg-white shadow-md rounded-lg p-6 border border-transparent transition-transform hover:scale-105 hover:shadow-lg hover:border-purple-500 overflow-hidden"
-          >
-            {/* Hover Background Effect */}
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-blue-500 opacity-0 group-hover:opacity-10 transition-opacity" />
-
-            {/* Icon */}
-            <div className="flex items-center justify-center w-16 h-16 bg-gray-200 text-gray-600 rounded-full mb-6 relative z-10">
-              <service.icon className="w-8 h-8" />
-            </div>
-
-            {/* Title */}
-            <h3 className="text-xl font-semibold mb-4 text-gray-800 relative z-10">
-              {service.title}
-            </h3>
-
-            {/* Description */}
-            <p className="text-gray-600 mb-6 relative z-10">
-              {service.description}
-            </p>
-
-            {/* Link Button */}
-            <a
-              href={service.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-blue-500 text-white font-medium py-2 px-4 rounded-lg shadow-sm transition hover:bg-blue-600 relative z-10"
-            >
-              {service.linkText}
-            </a>
-          </div>
-        ))}
+        <div className="grid md:grid-cols-3 gap-8">
+          {SERVICES.map((service, index) => (
+            <ServiceCard key={index} {...service} />
+          ))}
+        </div>
       </div>
-    </Section>
+    </section>
   );
 };
 

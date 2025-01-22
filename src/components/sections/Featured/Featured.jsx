@@ -1,6 +1,6 @@
 import React from "react";
 
-// Custom Icon Components
+// Custom Icon Components remain the same
 const CubicIcon = () => (
   <div className="w-12 h-12 mb-8">
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -72,9 +72,10 @@ const FEATURED_WORK = [
     description:
       "Research on next-to-leading order halo power spectra predictions, achieving significant detections of local and non-local cubic bias parameters. Published in Journal of Cosmology and Astroparticle Physics.",
     link: "#",
-    baseColor: "bg-sky-50",
-    hoverColor: "hover:bg-sky-100",
-    textHoverColor: "group-hover:text-gray-900",
+    baseColor: "bg-[#ffede6]",
+    hoverColor: "hover:bg-[#ffe0d3]",
+    iconColor: "text-[#ff6b2c]",
+    accentColor: "text-[#ff6b2c]",
     icon: <CubicIcon />,
     citations: "108 citations",
   },
@@ -83,9 +84,10 @@ const FEATURED_WORK = [
     description:
       "Developed cosmoSWAG, introducing stochastic weight averaging for robust simulation-based inference in cosmological surveys. Published in Machine Learning: Science and Technology.",
     link: "#",
-    baseColor: "bg-orange-50",
-    hoverColor: "hover:bg-orange-100",
-    textHoverColor: "group-hover:text-gray-900",
+    baseColor: "bg-[#e6f4ff]",
+    hoverColor: "hover:bg-[#d3ebff]",
+    iconColor: "text-[#0091ff]",
+    accentColor: "text-[#0091ff]",
     icon: <NetworkIcon />,
     citations: "33 citations",
   },
@@ -94,9 +96,10 @@ const FEATURED_WORK = [
     description:
       "Advanced methodology for reconstructing large-scale modes using correlations between smaller-scale modes of galaxy positions. Published in Physical Review D.",
     link: "#",
-    baseColor: "bg-yellow-50",
-    hoverColor: "hover:bg-yellow-100",
-    textHoverColor: "group-hover:text-gray-900",
+    baseColor: "bg-[#fff1e6]",
+    hoverColor: "hover:bg-[#ffe4d3]",
+    iconColor: "text-[#ff8f2c]",
+    accentColor: "text-[#ff8f2c]",
     icon: <DensityIcon />,
     citations: "23 citations",
   },
@@ -108,30 +111,25 @@ const Card = ({
   link,
   baseColor,
   hoverColor,
-  textHoverColor,
+  iconColor,
+  accentColor,
   icon,
   citations,
 }) => (
   <div
-    className={`group relative overflow-hidden rounded-3xl p-8 transition-all duration-500 cursor-pointer ${baseColor} ${hoverColor} hover:shadow-lg`}
+    className={`group relative overflow-hidden rounded-3xl p-8 transition-all duration-500 ${baseColor} ${hoverColor} hover:shadow-lg`}
   >
-    <div className="text-gray-900 transition-transform duration-500 group-hover:scale-110">
+    <div
+      className={`${iconColor} transition-transform duration-500 group-hover:scale-110`}
+    >
       {icon}
     </div>
-    <h3
-      className={`text-2xl font-semibold mb-4 transition-colors duration-300 ${textHoverColor}`}
-    >
-      {title}
-    </h3>
-    <p
-      className={`text-gray-600 mb-6 transition-colors duration-300 ${textHoverColor}`}
-    >
-      {description}
-    </p>
+    <h3 className="text-2xl font-serif mb-4 text-gray-900">{title}</h3>
+    <p className="text-gray-600 mb-6">{description}</p>
     <div className="flex justify-between items-center">
       <a
         href={link}
-        className={`inline-flex items-center gap-2 text-gray-900 font-medium transition-all duration-300 ${textHoverColor} group-hover:gap-3`}
+        className={`inline-flex items-center gap-2 ${accentColor} font-medium transition-all duration-300 group-hover:gap-3`}
       >
         View publication →
       </a>
@@ -142,12 +140,11 @@ const Card = ({
 
 const Featured = () => {
   return (
-    <section className="py-24 bg-gradient-to-b from-white to-gray-50">
-      <div className="max-w-6xl mx-auto px-4">
+    <section className="py-24 bg-[#fff8f3]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="inline-block text-4xl md:text-5xl font-bold text-gray-900 mb-4 relative">
+          <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-4">
             Featured Projects
-            <div className="absolute -bottom-4 left-0 right-0 h-1 bg-gradient-to-r from-sky-200 via-orange-200 to-yellow-200 transform scale-x-0 transition-transform duration-500 group-hover:scale-x-100"></div>
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             Research contributions in cosmology, machine learning, and
