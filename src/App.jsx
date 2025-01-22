@@ -8,8 +8,8 @@ const App = () => {
     <Layout>
       <main className="flex flex-col w-full">
         <Hero />
-        <Services />
         <Featured />
+        <Services />
         <Newsletter />
       </main>
     </Layout>

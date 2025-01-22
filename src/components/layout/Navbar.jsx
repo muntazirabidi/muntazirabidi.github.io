@@ -5,6 +5,7 @@ import { Button, NavLink, Container, GradientText } from "../common";
 const NAV_LINKS = [
   { href: "#research", text: "My Research" },
   { href: "#resources", text: "Free Resources" },
+  { href: "#youtube", text: "YouTube" },
   { href: "#publications", text: "Publications" },
 ];
 
@@ -34,6 +35,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-// src/components/layout/index.js
-export { default as Navbar } from "./Navbar";
