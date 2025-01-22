@@ -1,18 +1,9 @@
-const { theme } = require('./src/styles/theme');
-
-module.exports = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-  ],
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [],
   theme: {
-    extend: {
-      colors: theme.colors,
-      fontFamily: theme.fonts,
-      animation: theme.animation,
-      borderRadius: theme.borderRadius,
-    },
+    extend: {},
   },
-  plugins: [
-    require('@tailwindcss/forms'),
-  ],
-};
+  plugins: [],
+}
+
